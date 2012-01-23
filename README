@@ -1,0 +1,2 @@
+This app provides management commands using github api.
+ex: python manage.py list_commits <git_user1, git_user2, ...>
