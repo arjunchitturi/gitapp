@@ -3,7 +3,7 @@ from django.conf.urls.defaults import patterns, include#, url
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
-from gitcommands.views import inside, list_commits, home
+from gitcommands.views import inside, list_commits, home, list_repos
 
 urlpatterns = patterns('',
     # Examples:
@@ -25,4 +25,8 @@ urlpatterns = patterns('',
 
     #Commits
     (r'^list_commits', list_commits),
+
+    #Repos
+    (r'^list_repos', list_repos),
+   
 )
