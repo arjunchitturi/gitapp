@@ -7,6 +7,9 @@ from django.contrib.auth.models import User as DjangoUser
 class GitUser(models.Model):
     git_user = models.OneToOneField(DjangoUser)
 
+    def __unicode__(self):
+        return self.git_user.username
+
 
 class GitRepository(models.Model):
     repo_user = models.ForeignKey(GitUser, related_name='repo_user')
@@ -15,6 +18,7 @@ class GitRepository(models.Model):
 
 
 class GitCommit(models.Model):
+
     MODE_CHOICES = (
         ('A', 'Added'),
         ('R', 'Removed'),
