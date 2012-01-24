@@ -10,7 +10,7 @@ from django.shortcuts import render_to_response#, redirect
 
 #from bootstrap.forms import QuestionForm, AnswerForm \
 #, ExampleForm, AjaxAutoComplete, PopoverForm
-from gitcommands.models import GitCommit#, GitUser, GitRepository
+from gitcommands.models import GitCommit, GitRepository#, GitUser,
 
 
 #Home Page
@@ -38,3 +38,12 @@ def list_commits(request):
     #c['git_users'] = GitUser.objects.all()
     c['hero_title'] = "Hello, " + str(request.user.username) + "!"
     return render_to_response('gitcommands/list_commits.html', c)
+
+
+def list_repos(request):
+    c = {}
+    repos = GitRepository.objects.all()
+    c['repos'] = repos
+    c['user'] = request.user
+    c['hero_title'] = "Hello, " + str(request.user.username) + "!"
+    return render_to_response('gitcommands/list_repos.html', c)
